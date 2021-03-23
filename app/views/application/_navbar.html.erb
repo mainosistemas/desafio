@@ -1,0 +1,50 @@
+<nav class="navbar navbar-light bg-light navbar-expand mb-5 p-2">
+  <%= link_to 'Mini Blog', root_path, class: 'navbar-brand mr-3' %>
+
+  <% if user_signed_in? %>
+    <% blog = current_user.blog %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <% if user_created_blog? %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to 'New Post', [:new, blog, :post] %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Your Blog', blog %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav ml-auto">
+        <% if user_created_blog? %>
+          <li class="nav-item">
+            <%= link_to 'Edit Blog', [:edit, blog] %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to 'Edit Profile', edit_user_registration_path(current_user) %>
+        </li>
+         <li class="nav-item">
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    </div>
+  <% else %>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to 'Sign in', new_user_session_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign up', new_user_registration_path %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</nav>

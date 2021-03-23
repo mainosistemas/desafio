@@ -1,0 +1,17 @@
+<% if user_signed_in? && !user_created_blog? %>
+  <div class='text-center mb-5'>
+    <%= link_to 'CREATE YOUR BLOG', new_blog_path, class: 'btn btn-success btn-lg' %>
+  </div>
+<% end %>
+
+<div class='row'>
+  <h3>Discover new blogs:</h3>
+
+  <% @blogs.each do |blog| %>
+    <div class='border rounded m-3 p-5'>
+      <%= link_to blog.title, blog, class: "title-link" %></>
+      <hr/>
+      <p><%= blog.description %></p>
+    </div>
+  <% end %>
+</div>

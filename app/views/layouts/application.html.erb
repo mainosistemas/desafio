@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desafio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'navbar' %>
+
+    <% if flash.any? %>
+      <div class='row text-center m-2'>
+        <p class="notice" style='color: green;'><%= notice %></p>
+        <p class="alert" style='color: red;'><%= alert %></p>
+      </div>
+    <% end %>
+
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>

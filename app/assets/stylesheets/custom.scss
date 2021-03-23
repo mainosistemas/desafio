@@ -1,0 +1,44 @@
+h3 {
+  text-align: center;
+}
+
+.navbar {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+
+  .navbar-brand {
+    &:hover {
+      color: grey;
+    }
+  }
+
+  .nav-item a {
+    color: rgb(56, 56, 56);
+    margin: auto 8px;
+    text-decoration: none;
+
+    &:hover {
+      color: grey;
+    }
+  }
+
+}
+
+.form-group {
+  margin: 30px 15px;
+}
+
+.collapse .navbar-collapse {
+  justify-content: flex-end;
+}
+
+.title-link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+
+  &:hover {
+    color: rgb(56, 56, 56);
+  }
+}

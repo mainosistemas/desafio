@@ -1,0 +1,13 @@
+<div class='row'>
+  <h3><%= @blog.title %></h3>
+</div>
+
+<div class='row'>
+  <% @blog.posts.each do |post| %>
+    <div class='border rounded m-3 p-5'>
+      <%= link_to post.title, [@blog, post] %></>
+      <p><%= datetime_signature_s(post)%></p>
+      <p><%= simple_format post.body %></p>
+    </div>
+  <% end %>
+</div>
