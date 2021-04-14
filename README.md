@@ -1,4 +1,4 @@
-# Desafio Mainô
+# Mainô Blogs
 Existem 1000 sistemas de blog, mas não ficamos satisfeitos com nenhum e vamos criar o nosso próprio.
 
 # Como configurar o ambiente de desenvolvimento
