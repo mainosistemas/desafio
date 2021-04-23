@@ -3,7 +3,7 @@
 </div>
 
 <div class='row'>
-  <% @blog.posts.each do |post| %>
+  <% @blog.posts.includes(:user).each do |post| %>
     <div class='border rounded m-3 p-5'>
       <%= link_to post.title, [@blog, post] %></>
       <p><%= datetime_signature_s(post)%></p>

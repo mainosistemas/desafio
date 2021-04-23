@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "blogs#index"
 
   resources :blogs, except: [:destroy], param: :slug do
-    resources :posts
+    resources :posts do
+      resources :comments, module: 'posts', only: [:create]
+    end
   end
 end

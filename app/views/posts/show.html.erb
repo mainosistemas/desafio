@@ -1,3 +1,5 @@
+<%= turbo_stream_from @post.comments_channel %>
+
 <div class='row'>
   <h3><%= @post.title %></h3>
   <small><p><%= datetime_signature_s(@post)%> </p></small>
@@ -14,5 +16,16 @@
 
 
 <div class='row'>
-  <%# comentarios %>
+  <%= turbo_frame_tag :comments_form do %>
+    <%= form_for [@post.blog, @post, Comment.new] do |f| %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+
+  <%= turbo_frame_tag @post.comments_channel do %>
+    <%= render @post.comments.order(:created_at) %>
+  <% end %>
 </div>

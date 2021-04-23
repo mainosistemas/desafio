@@ -6,4 +6,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, length: { minimum: 20, maximum: 500 }
+
+  def comments_channel
+    "post_#{id}_comments"
+  end
 end

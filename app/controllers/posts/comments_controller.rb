@@ -2,16 +2,22 @@ module Posts
   class CommentsController < ApplicationController
 
     def create
-
       @comment = post.comments.new(user: current_user, body: comment_params[:body])
 
-      @comment.save!
+      respond_to do |format|
+        if @comment.save
+          format.html { redirect_to [post.blog, post] }
+        else
+        end
+      end
     end
 
     def update
       @comment = Comment.find(params[:id])
 
-      @comment.update(comment_params)
+      if @comment.update(comment_params)
+      else
+      end
     end
 
     private
