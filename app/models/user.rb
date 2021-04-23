@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_one :blog
   has_many :posts
+  has_many :comments
 
   def to_s
     name
